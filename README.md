@@ -59,3 +59,24 @@ The app uses `channel-x` as the channel name.
 
 ## License
 MIT
+
+## Clubhouse Clone
+
+```
+$ adb devices
+List of devices attached
+2a20ca78	        device
+LML212VLc7543c01	device
+
+# map packager ports
+$ adb -s 2a20ca78 reverse tcp:8081 tcp:8081
+$ adb -s LML212VLc7543c01 reverse tcp:8082 tcp:8082
+
+# run packagers 
+$ npx react-native start --port 8081
+$ npx react-native start --port 8082
+
+# run apps
+$ npx react-native run-android --port 8081 --deviceId 2a20ca78
+$ npx react-native run-android --port 8082 --deviceId LML212VLc7543c01
+```
